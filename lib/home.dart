@@ -21,6 +21,24 @@ class _HomeState extends State<Home> {
         child: Text('Let\'s get cooking 👩‍🍳',
           style: Theme.of(context).textTheme.headline1,),
       ),
+      // TODO: add bottom navigation bar
+      bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Theme.of(context).textSelectionTheme.selectionColor,
+        items: <BottomNavigationBarItem> [
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.card_giftcard),
+            label: 'Card',
+          ),
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.card_giftcard),
+            label: 'Card2',
+          ),
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.card_giftcard),
+            label: 'Card3',
+          ),
+        ],
+      ),
     );
   }
 }
