@@ -38,6 +38,83 @@ class Card3 extends StatelessWidget {
               ),
             ),
             // TODO 7: add Center widget with Chip widget children
+            Center(
+              child: Wrap(
+                alignment: WrapAlignment.start,
+                spacing: 12,
+                children: [
+                  Chip(
+                    label: Text(
+                      '#healthy',
+                      style: FooderlichTheme.darkTextTheme.bodyText1,
+                    ),
+                    backgroundColor: Colors.black.withOpacity(0.7),
+                    onDeleted: () {
+                      print('Chip healthy deleted');
+                    },
+                  ),
+                  Chip(
+                    label: Text(
+                      '#vegetarian',
+                      style: FooderlichTheme.darkTextTheme.bodyText1,
+                    ),
+                    backgroundColor: Colors.black.withOpacity(0.7),
+                    onDeleted: () {
+                      print('Chip vegetarian deleted');
+                    },
+                  ),
+                  Chip(
+                    label: Text(
+                      '#carrots',
+                      style: FooderlichTheme.darkTextTheme.bodyText1,
+                    ),
+                    backgroundColor: Colors.black.withOpacity(0.7),
+                  ),
+                  Chip(
+                    label: Text(
+                      '#carrots',
+                      style: FooderlichTheme.darkTextTheme.bodyText1,
+                    ),
+                    backgroundColor: Colors.black.withOpacity(0.7),
+                  ),
+                  Chip(
+                    label: Text(
+                      '#carrots',
+                      style: FooderlichTheme.darkTextTheme.bodyText1,
+                    ),
+                    backgroundColor: Colors.black.withOpacity(0.7),
+                  ),
+                  Chip(
+                    label: Text(
+                      '#carrots',
+                      style: FooderlichTheme.darkTextTheme.bodyText1,
+                    ),
+                    backgroundColor: Colors.black.withOpacity(0.7),
+                  ),
+                  Chip(
+                    label: Text(
+                      '#carrots',
+                      style: FooderlichTheme.darkTextTheme.bodyText1,
+                    ),
+                    backgroundColor: Colors.black.withOpacity(0.7),
+                  ),
+                  Chip(
+                    label: Text(
+                      '#carrots',
+                      style: FooderlichTheme.darkTextTheme.bodyText1,
+                    ),
+                    backgroundColor: Colors.black.withOpacity(0.7),
+                  ),
+                  Chip(
+                    label: Text(
+                      '#carrots',
+                      style: FooderlichTheme.darkTextTheme.bodyText1,
+                    ),
+                    backgroundColor: Colors.black.withOpacity(0.7),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
         // no need for padding here because the overlay can handle it
