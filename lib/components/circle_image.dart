@@ -5,7 +5,7 @@ class CircleImage extends StatelessWidget {
     Key? key,
     this.imageProvider,
     this.imageRadius = 20,
-}) : super(key: key);
+  }) : super(key: key);
 
   final double imageRadius;
   final ImageProvider? imageProvider;

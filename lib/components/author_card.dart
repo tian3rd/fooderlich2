@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+
+import '../fooderlich_theme.dart';
 import 'circle_image.dart';
-import 'fooderlich_theme.dart';
 
 class AuthorCard extends StatefulWidget {
   final String authorName;
@@ -15,7 +16,7 @@ class AuthorCard extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<AuthorCard> createState() => _AuthorCardState();
+  _AuthorCardState createState() => _AuthorCardState();
 }
 
 class _AuthorCardState extends State<AuthorCard> {
@@ -23,18 +24,16 @@ class _AuthorCardState extends State<AuthorCard> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: replace Container()
     return Container(
-      padding: const EdgeInsets.all(4),
+      padding: const EdgeInsets.all(16),
       child: Row(
-        // TODO 3: add alignment
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
             children: [
               CircleImage(
                 imageProvider: widget.imageProvider,
-                imageRadius: 32,
+                imageRadius: 28,
               ),
               const SizedBox(width: 8),
               Column(
@@ -46,22 +45,21 @@ class _AuthorCardState extends State<AuthorCard> {
                   ),
                   Text(
                     widget.title,
-                    style: FooderlichTheme.lightTextTheme.bodyText1,
-                  ),
+                    style: FooderlichTheme.lightTextTheme.headline3,
+                  )
                 ],
               ),
             ],
           ),
-          // TODO 2: add IconButton
           IconButton(
-            iconSize: 32,
+            icon: Icon(_isFavorited ? Icons.favorite : Icons.favorite_border),
+            iconSize: 30,
             color: Colors.red[400],
             onPressed: () {
               setState(() {
                 _isFavorited = !_isFavorited;
               });
             },
-            icon: Icon(_isFavorited ? Icons.favorite : Icons.favorite_border),
           ),
         ],
       ),
