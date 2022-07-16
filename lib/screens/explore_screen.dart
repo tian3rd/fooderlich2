@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../components/components.dart';
+import '../components/friend_post_list_view.dart';
 import '../models/models.dart';
 import '../api/mock_fooderlich_service.dart';
 
@@ -26,10 +27,7 @@ class ExploreScreen extends StatelessWidget {
               TodayRecipeListView(recipes: snapshot.data?.todayRecipes ?? []),
               const SizedBox(height: 16),
               // TODO: replace with FriendPostListView
-              Container(
-                height: 400,
-                color: Colors.grey,
-              ),
+              FriendPostListView(friendPosts: snapshot.data?.friendPosts ?? []),
             ],
           );
         } else {
