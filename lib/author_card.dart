@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'circle_image.dart';
 import 'fooderlich_theme.dart';
 
-class AuthorCard extends StatelessWidget {
+class AuthorCard extends StatefulWidget {
   final String authorName;
   final String title;
   final ImageProvider? imageProvider;
@@ -13,6 +13,13 @@ class AuthorCard extends StatelessWidget {
     required this.title,
     this.imageProvider,
   }) : super(key: key);
+
+  @override
+  State<AuthorCard> createState() => _AuthorCardState();
+}
+
+class _AuthorCardState extends State<AuthorCard> {
+  bool _isFavorited = false;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +33,7 @@ class AuthorCard extends StatelessWidget {
           Row(
             children: [
               CircleImage(
-                imageProvider: imageProvider,
+                imageProvider: widget.imageProvider,
                 imageRadius: 32,
               ),
               const SizedBox(width: 8),
@@ -34,11 +41,11 @@ class AuthorCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    authorName,
+                    widget.authorName,
                     style: FooderlichTheme.lightTextTheme.headline2,
                   ),
                   Text(
-                    title,
+                    widget.title,
                     style: FooderlichTheme.lightTextTheme.bodyText1,
                   ),
                 ],
@@ -48,20 +55,16 @@ class AuthorCard extends StatelessWidget {
           // TODO 2: add IconButton
           IconButton(
             iconSize: 32,
-            color: Colors.grey[400],
+            color: Colors.red[400],
             onPressed: () {
-              const snackBar = SnackBar(
-                content: Text(
-                  'Added to your favorites',
-                ),
-                duration: Duration(seconds: 1),
-              );
-              ScaffoldMessenger.of(context).showSnackBar(snackBar);},
-            icon: const Icon(Icons.favorite_border),
+              setState(() {
+                _isFavorited = !_isFavorited;
+              });
+            },
+            icon: Icon(_isFavorited ? Icons.favorite : Icons.favorite_border),
           ),
         ],
       ),
     );
   }
-
 }
