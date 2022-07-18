@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../models/models.dart';
 
 class EmptyGroceryScreen extends StatelessWidget {
   const EmptyGroceryScreen({
@@ -35,7 +38,11 @@ class EmptyGroceryScreen extends StatelessWidget {
           ),
           // TODO 7: add empty screen browse button
           SizedBox(height: 16),
-          MaterialButton(onPressed: () {},
+          MaterialButton(onPressed: () {
+            // TODO 8: go to Recipes Tab
+            //
+            Provider.of<TabManger>(context, listen: false).goToRecipes();
+          },
             textColor: Colors.white,
             child: Text('Browse Recipes'),
             shape: RoundedRectangleBorder(
