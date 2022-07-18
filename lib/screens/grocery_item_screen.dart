@@ -91,6 +91,7 @@ class _GroceryItemScreenState extends State<GroceryItemScreen> {
         child: ListView(
           children: [
             // TODO 13: add name TextField
+            buildNameField(),
             // TODO 14: add Importance selection
             // TODO 15: add date picker
             // TODO 16: add time picker
@@ -104,6 +105,41 @@ class _GroceryItemScreenState extends State<GroceryItemScreen> {
   }
 
 // TODO: add buildNameField()
+  Widget buildNameField() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Item Name',
+          style: GoogleFonts.lato(
+            fontSize: 32,
+          ),
+        ),
+        TextField(
+          controller: _nameController,
+          cursorColor: _currentColor,
+          decoration: InputDecoration(
+            hintText: 'E.g. Apples, Banana, 1 bag of salt',
+            enabledBorder: const UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: Colors.white,
+              ),
+            ),
+            focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: _currentColor,
+              ),
+            ),
+            border: UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: _currentColor,
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
 
 // TODO: add buildImportanceField()
 
