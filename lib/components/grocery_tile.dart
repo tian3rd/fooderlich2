@@ -42,13 +42,13 @@ class GroceryTile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    'Preview',
-                    style: GoogleFonts.roboto(
-                      fontSize: 10,
-                      color: Colors.blueGrey.withOpacity(0.8),
-                    ),
-                  ),
+                  // Text(
+                  //   'Preview',
+                  //   style: GoogleFonts.roboto(
+                  //     fontSize: 10,
+                  //     color: Colors.blueGrey.withOpacity(0.8),
+                  //   ),
+                  // ),
                   Text(
                     groceryItem.name,
                     style: GoogleFonts.lato(
@@ -103,7 +103,7 @@ class GroceryTile extends StatelessWidget {
         'Medium',
         style: GoogleFonts.pacifico(
           fontSize: 12,
-          color: Colors.yellow,
+          color: Colors.orange,
         ),
       );
     } else if (groceryItem.importance == Importance.low) {
