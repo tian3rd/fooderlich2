@@ -97,6 +97,7 @@ class _GroceryItemScreenState extends State<GroceryItemScreen> {
             // TODO 15: add date picker
             buildDateField(context),
             // TODO 16: add time picker
+            buildTimeField(context),
             // TODO 17: add color picker
             // TODO 18: add slider
             // TODO 19: add grocery tile
@@ -246,7 +247,40 @@ class _GroceryItemScreenState extends State<GroceryItemScreen> {
     );
   }
 // TODO: add buildTimeField()
-
+  Widget buildTimeField(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'Time',
+              style: GoogleFonts.lato(
+                fontSize: 28,
+              ),
+            ),
+            TextButton(
+              child: Text('Select'),
+              onPressed: () async {
+                final currentTime = TimeOfDay.now();
+                final selectedTime = await showTimePicker(
+                  context: context,
+                  initialTime: currentTime,
+                );
+                setState(() {
+                  if (selectedTime != null) {
+                    _timeOfDay = selectedTime;
+                  }
+                });
+              },
+            ),
+          ],
+        ),
+        Text('${_timeOfDay.format(context)}'),
+      ],
+    );
+  }
 // TODO: add buildColorPicker()
 
 // TODO: add buildQuantityField()
