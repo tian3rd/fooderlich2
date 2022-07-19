@@ -99,6 +99,7 @@ class _GroceryItemScreenState extends State<GroceryItemScreen> {
             // TODO 16: add time picker
             buildTimeField(context),
             // TODO 17: add color picker
+            buildColorPicker(context),
             // TODO 18: add slider
             // TODO 19: add grocery tile
           ],
@@ -282,6 +283,57 @@ class _GroceryItemScreenState extends State<GroceryItemScreen> {
     );
   }
 // TODO: add buildColorPicker()
+  Widget buildColorPicker(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Row(
+          children: [
+            Container(
+              height: 40,
+              width: 8,
+              color: _currentColor,
+            ),
+            const SizedBox(width: 10),
+            Text(
+              'Color',
+              style: GoogleFonts.lato(
+                fontSize: 28,
+              ),
+            ),
+          ],
+        ),
+        TextButton(
+          child: const Text('Select'),
+          onPressed: () async {
+            final selectedColor = await showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                content: BlockPicker(
+                  pickerColor: _currentColor,
+                  onColorChanged: (color) {
+                    setState(() {
+                      _currentColor = color;
+                    });
+                  },
+                ),
+                // unlike date/time picker, there's no OK/Cancel button, so we
+                // need to add one action to the dialog for user
+                actions: [
+                  TextButton(
+                    child: const Text('Done'),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                ],
+              ),
+            );
+          },
+        ),
+      ],
+    );
+  }
 
 // TODO: add buildQuantityField()
 
