@@ -31,6 +31,35 @@ class GroceryTile extends StatelessWidget {
   }
 
   // TODO: add buildImportance()
+  Widget buildImportance() {
+    if (groceryItem.importance == Importance.high) {
+      return Text(
+        'High',
+        style: GoogleFonts.pacifico(
+          fontSize: 12,
+          color: Colors.red,
+        ),
+      );
+    } else if (groceryItem.importance == Importance.medium) {
+      return Text(
+        'Medium',
+        style: GoogleFonts.pacifico(
+          fontSize: 12,
+          color: Colors.yellow,
+        ),
+      );
+    } else if (groceryItem.importance == Importance.low) {
+      return Text(
+        'Low',
+        style: GoogleFonts.pacifico(
+          fontSize: 12,
+          color: Colors.green,
+        ),
+      );
+    } else {
+      throw Exception('Unknown importance');
+    }
+  }
 
   // TODO: add buildDate()
 
