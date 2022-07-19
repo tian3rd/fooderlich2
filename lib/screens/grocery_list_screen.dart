@@ -24,16 +24,58 @@ class GroceryListScreen extends StatelessWidget {
           final groceryItem = groceryItems[index];
           // TODO 28: wrap in a Dismissable?
           // TODO 27: Wrap in an InkWell?
-          return GroceryTile(
-            // add unique key here
+          return Dismissible(
             key: Key(groceryItem.id),
-            groceryItem: groceryItem,
-            onComplete: (change) {
-              if (change != null) {
-                groceryManager.completeItem(index, change);
-              }
+            direction: DismissDirection.endToStart,
+            background: Container(
+              color: Colors.red,
+              alignment: Alignment.centerRight,
+              child: const SizedBox(
+                width: 80,
+                child: Icon(
+                  Icons.delete_forever,
+                  color: Colors.white,
+                  size: 48,
+                ),
+              ),
+            ),
+            onDismissed: (direction) {
+              groceryManager.deleteItem(index);
+              // show SnackBar to indicate item has been deleted
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text('${groceryItem.name} deleted'),
+                ),
+              );
             },
+            child: InkWell(
+              child: GroceryTile(
+                key: Key(groceryItem.id),
+                groceryItem: groceryItem,
+                onComplete: (change) {
+                  if (change != null) {
+                    groceryManager.completeItem(index, change);
+                  }
+                },
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => GroceryItemScreen(
+                      originalItem: groceryItem,
+                      onCreate: (groceryItem) {},
+                      onUpdate: (groceryItem) {
+                        groceryManager.updateItem(groceryItem, index);
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ),
+                );
+              },
+            ),
           );
+
         },
         separatorBuilder: (context, index) {
           return const SizedBox(height: 16);
