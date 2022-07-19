@@ -102,6 +102,8 @@ class _GroceryItemScreenState extends State<GroceryItemScreen> {
             const SizedBox(height: 8),
             buildColorPicker(context),
             // TODO 18: add slider
+            const SizedBox(height: 8),
+            buildQuantityField(),
             // TODO 19: add grocery tile
           ],
         ),
@@ -337,5 +339,45 @@ class _GroceryItemScreenState extends State<GroceryItemScreen> {
   }
 
 // TODO: add buildQuantityField()
+  Widget buildQuantityField() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.baseline,
+          textBaseline: TextBaseline.alphabetic,
+          children: [
+            Text(
+              'Quantity',
+              style: GoogleFonts.lato(
+                fontSize: 28,
+              ),
+            ),
+            const SizedBox(width: 16),
+            Text(
+              '$_currentSliderValue',
+              style: GoogleFonts.lato(
+                fontSize: 16,
+              ),
+            ),
+          ],
+        ),
+        Slider(
+          value: _currentSliderValue.toDouble(),
+          min: 0,
+          max: 100,
+          divisions: 100,
+          label: '$_currentSliderValue',
+          onChanged: (newValue) {
+            setState(() {
+              _currentSliderValue = newValue.round();
+            });
+          },
+          activeColor: _currentColor,
+          inactiveColor: _currentColor.withOpacity(0.3),
+        ),
+      ],
+    );
+  }
 
 }
