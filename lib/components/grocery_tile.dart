@@ -23,10 +23,64 @@ class GroceryTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO 21: change this widget
-    return Container(
+    return SizedBox(
       height: 100,
       // TODO 20: replace this color
-      color: groceryItem.color,
+      // color: groceryItem.color,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          // TODO 22: add Row to group (name, date, importance)
+          Row(
+            children: [
+              Container(
+                width: 5,
+                color: groceryItem.color,
+              ),
+              const SizedBox(width: 8),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Preview',
+                    style: GoogleFonts.roboto(
+                      fontSize: 10,
+                      color: Colors.blueGrey.withOpacity(0.8),
+                    ),
+                  ),
+                  Text(
+                    groceryItem.name,
+                    style: GoogleFonts.lato(
+                      decoration: textDecoration,
+                      fontSize: 21,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 6,),
+                  buildDate(),
+                  SizedBox(height: 6,),
+                  buildImportance(),
+                ],
+              ),
+            ],
+          ),
+          // TODO 23: add Row to group (quantity, checkbox)
+          Row(
+            children: [
+              Text(
+                '${groceryItem.quantity}',
+                style: GoogleFonts.lato(
+                  fontSize: 24,
+                  decoration: textDecoration,
+                ),
+              ),
+              const SizedBox(width: 8),
+              buildCheckbox(),
+            ],
+          ),
+        ],
+      ),
     );
   }
 
