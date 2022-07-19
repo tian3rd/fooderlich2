@@ -57,9 +57,13 @@ class GroceryTile extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 6,),
+                  const SizedBox(
+                    height: 6,
+                  ),
                   buildDate(),
-                  SizedBox(height: 6,),
+                  const SizedBox(
+                    height: 6,
+                  ),
                   buildImportance(),
                 ],
               ),

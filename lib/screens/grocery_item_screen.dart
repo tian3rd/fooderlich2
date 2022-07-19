@@ -106,20 +106,21 @@ class _GroceryItemScreenState extends State<GroceryItemScreen> {
             const SizedBox(height: 8),
             buildQuantityField(),
             // TODO 19: add grocery tile
-            GroceryTile(groceryItem: GroceryItem(
-              id: 'preview_placeholder',
-              name: _name,
-              importance: _importance,
-              color: _currentColor,
-              quantity: _currentSliderValue,
-              date: DateTime(
-                _dueDate.year,
-                _dueDate.month,
-                _dueDate.day,
-                _timeOfDay.hour,
-                _timeOfDay.minute,
+            GroceryTile(
+              groceryItem: GroceryItem(
+                id: 'preview_placeholder',
+                name: _name,
+                importance: _importance,
+                color: _currentColor,
+                quantity: _currentSliderValue,
+                date: DateTime(
+                  _dueDate.year,
+                  _dueDate.month,
+                  _dueDate.day,
+                  _timeOfDay.hour,
+                  _timeOfDay.minute,
+                ),
               ),
-             ),
             ),
           ],
         ),
@@ -175,56 +176,53 @@ class _GroceryItemScreenState extends State<GroceryItemScreen> {
             fontSize: 28,
           ),
         ),
-        Wrap(
-          spacing: 10,
-          children: [
-            ChoiceChip(
-              selectedColor: Colors.black,
-              selected: _importance == Importance.low,
-              label: const Text(
-                'low',
-                style: TextStyle(
-                  color: Colors.white,
-                ),
+        Wrap(spacing: 10, children: [
+          ChoiceChip(
+            selectedColor: Colors.black,
+            selected: _importance == Importance.low,
+            label: const Text(
+              'low',
+              style: TextStyle(
+                color: Colors.white,
               ),
-              onSelected: (selected) {
-                setState(() {
-                  _importance = Importance.low;
-                });
-              },
             ),
-            ChoiceChip(
-              selectedColor: Colors.black,
-              selected: _importance == Importance.medium,
-              label: const Text(
-                'medium',
-                style: TextStyle(
-                  color: Colors.white,
-                ),
+            onSelected: (selected) {
+              setState(() {
+                _importance = Importance.low;
+              });
+            },
+          ),
+          ChoiceChip(
+            selectedColor: Colors.black,
+            selected: _importance == Importance.medium,
+            label: const Text(
+              'medium',
+              style: TextStyle(
+                color: Colors.white,
               ),
-              onSelected: (selected) {
-                setState(() {
-                  _importance = Importance.medium;
-                });
-              },
             ),
-            ChoiceChip(
-              selectedColor: Colors.black,
-              selected: _importance == Importance.high,
-              label: const Text(
-                'high',
-                style: TextStyle(
-                  color: Colors.white,
-                ),
+            onSelected: (selected) {
+              setState(() {
+                _importance = Importance.medium;
+              });
+            },
+          ),
+          ChoiceChip(
+            selectedColor: Colors.black,
+            selected: _importance == Importance.high,
+            label: const Text(
+              'high',
+              style: TextStyle(
+                color: Colors.white,
               ),
-              onSelected: (selected) {
-                setState(() {
-                  _importance = Importance.high;
-                });
-              },
             ),
-          ]
-        )
+            onSelected: (selected) {
+              setState(() {
+                _importance = Importance.high;
+              });
+            },
+          ),
+        ])
       ],
     );
   }
@@ -266,6 +264,7 @@ class _GroceryItemScreenState extends State<GroceryItemScreen> {
       ],
     );
   }
+
 // TODO: add buildTimeField()
   Widget buildTimeField(BuildContext context) {
     return Column(
@@ -301,6 +300,7 @@ class _GroceryItemScreenState extends State<GroceryItemScreen> {
       ],
     );
   }
+
 // TODO: add buildColorPicker()
   Widget buildColorPicker(BuildContext context) {
     return Row(
@@ -395,5 +395,4 @@ class _GroceryItemScreenState extends State<GroceryItemScreen> {
       ],
     );
   }
-
 }
