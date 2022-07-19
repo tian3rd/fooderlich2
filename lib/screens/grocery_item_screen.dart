@@ -99,6 +99,7 @@ class _GroceryItemScreenState extends State<GroceryItemScreen> {
             // TODO 16: add time picker
             buildTimeField(context),
             // TODO 17: add color picker
+            const SizedBox(height: 8),
             buildColorPicker(context),
             // TODO 18: add slider
             // TODO 19: add grocery tile
