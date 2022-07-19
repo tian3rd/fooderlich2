@@ -44,7 +44,12 @@ class _HomeState extends State<Home> {
             ),
           ),
           // TODO: replace body
-          body: pages[tabManager.selectedTab],
+          // body: pages[tabManager.selectedTab],
+          // use IndexedStack to preserve state instead of reloading every time
+          body: IndexedStack(
+            index: tabManager.selectedTab,
+            children: pages,
+          ),
           bottomNavigationBar: BottomNavigationBar(
             selectedItemColor:
                 Theme.of(context).textSelectionTheme.selectionColor,
